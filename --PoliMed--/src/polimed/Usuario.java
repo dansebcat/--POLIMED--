@@ -5,12 +5,17 @@
  */
 package polimed;
 
+
+
 /**
  *
  * @author Usuario
  */
 public class Usuario {
     private String correo;
+    private String contraseña;
+    
+    
      public boolean esCorreo(String correo){
         this.correo=correo;  
         return correo.matches("[a-z]+[.]([a-z]*[0-9]*)+[@]"+"epn.edu.ec");
