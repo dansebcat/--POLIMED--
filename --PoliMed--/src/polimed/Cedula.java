@@ -10,13 +10,13 @@ package polimed;
  * @author INTEL
  */
 public class Cedula {
+    boolean cedulaCorrecta = false;
+    int tercerDigito;
+    int verificador;
+    int suma = 0;
+    int digito = 0;
+    
     public boolean validadorDeCedula(String cedula) {
-        boolean cedulaCorrecta = false;
-        int tercerDigito;
-        int verificador;
-        int suma = 0;
-        int digito = 0;
-        
         try {
             if (cedula.length()==10){
                 tercerDigito=Integer.parseInt(cedula.substring(2, 3));
