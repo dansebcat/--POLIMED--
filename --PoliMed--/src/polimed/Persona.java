@@ -12,11 +12,19 @@ import java.util.Date;
  * @author danie
  */
 public class Persona {
-    private String nombre;
-    private String apellido;
-    private String direccion;
-    private String cedula;
-    private Date fecNac;
+    private final String nombre;
+    private final String apellido;
+    private final String direccion;
+    private final String cedula;
+    private final Date fecNac;
+
+    public Persona(String nombre, String apellido, String direccion, String cedula, Date fecNac) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.cedula = cedula;
+        this.fecNac = fecNac;
+    }
     
     
 }
