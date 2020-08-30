@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,9 +30,9 @@ public class Usuario {
     }
     
     
-     public boolean esCorreo(String correo){
+      public boolean esCorreo(String correo){
         this.correo=correo;  
-        return correo.matches("[a-z]+[.]([a-z]*[0-9]*)+[@]"+"epn.edu.ec");
+        return correo.matches("([a-z]*[.]*[a-z]*[0-9]*)+[@]"+"([hotmail.com]*[gmail.com]*[epn.edu.ec]*)");
     }
     
 }
