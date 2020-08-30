@@ -16,9 +16,5 @@ public class Usuario {
     private String contraseña;
     
     
-     public boolean esCorreo(String correo){
-        this.correo=correo;  
-        return correo.matches("([a-z]*[.]*[a-z]*[0-9]*)+[@]"+"([hotmail.com]*[gmail.com]*[epn.edu.ec]*)");
-    }
     
 }
