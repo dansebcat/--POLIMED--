@@ -11,7 +11,7 @@ package polimed;
  */
 public class Jarabe extends Medicina {
 
-    public Jarabe(int codigoProducto, String nombreProducto, double precioProducto) {
+    public Jarabe(String codigoProducto, String nombreProducto, double precioProducto) {
         super(codigoProducto, nombreProducto, precioProducto);
     }
 
