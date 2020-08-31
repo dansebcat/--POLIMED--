@@ -8,6 +8,7 @@ package polimed;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -59,6 +60,11 @@ public class GUI_Login extends javax.swing.JFrame {
             }
         });
 
+        txtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUsuarioFocusLost(evt);
+            }
+        });
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyTyped(evt);
@@ -121,6 +127,10 @@ public class GUI_Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void borrarElementos(){
+        txtUsuario.setText("");
+        pssClave.setText("");
+    }
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
         habilitarBotones();
@@ -133,12 +143,43 @@ public class GUI_Login extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        if(txtUsuario.getText().equals(ABORT)){
-            
+        int option;
+        GUI_Registro registro= new GUI_Registro();
+        ListaUsuarios usuario= new ListaUsuarios();
+        if(usuario.validarUsuario(txtUsuario.getText(), pssClave.getText()) == true){
+            JOptionPane.showMessageDialog(null, "Login Sucesfull");
         }else{
-            btnIngresar.setEnabled(true);
+            option=JOptionPane.showConfirmDialog(null, "Usuario no Registrado"+"\n"+"Desea Registrarse ");
+            if(option == 0){
+                borrarElementos();
+                txtUsuario.setEnabled(false);
+                pssClave.setEnabled(false);
+                btnIngresar.setEnabled(false);
+                btnRegistro.setEnabled(true);
+                registro.setVisible(true);
+                this.setVisible(false);
+            }else{
+                borrarElementos();
+                txtUsuario.setEnabled(true);
+                pssClave.setEnabled(true);
+                btnIngresar.setEnabled(false);
+                btnRegistro.setEnabled(false);
+            }
+            
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusLost
+        // TODO add your handling code here:
+        Usuario emailUser= new Usuario(txtUsuario.getText(),pssClave.getText());
+        if(emailUser.esCorreo(txtUsuario.getText())){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Email Incorrecto");
+            txtUsuario.requestFocus();
+        }
+        habilitarBotones();
+    }//GEN-LAST:event_txtUsuarioFocusLost
 
     /**
      * @param args the command line arguments

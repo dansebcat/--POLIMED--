@@ -10,62 +10,28 @@ package polimed;
  * @author INTEL
  */
 public class Cedula {
-    boolean cedulaCorrecta = false;
-    int tercerDigito;
-    int verificador;
-    int suma = 0;
-    int digito = 0;
     
-    public boolean validadorDeCedula(String cedula) {
-        try {
-            if (cedula.length()==10){
-                tercerDigito=Integer.parseInt(cedula.substring(2, 3));
-                
-                if (tercerDigito<6) {
-                    int[] coefValCedula = {2,1,2,1,2,1,2,1,2};
-                    verificador=Integer.parseInt(cedula.substring(9,10));
-                    
-                    for (int i=0;i<(cedula.length()-1);i++){
-                        digito=Integer.parseInt(cedula.substring(i,i+1))*coefValCedula[i];
-                        suma+=((digito%10)+(digito/10));
-                    }                
-                    
-                    if ((suma%10==0)&&(suma%10==verificador)){
-                        cedulaCorrecta=true;
+    public boolean esValida(String cedulaNumero){//cambie le metodo de fabricio porque no me funcionaba en algunas cedulas le puse mi metodo de cedulas perdon :)
+        int total=0;
+        int duplicado;
+        String nuevaCedula[];
+        nuevaCedula=cedulaNumero.split("");
+            for(int i=0;i<nuevaCedula.length-1;i++){
+                if(i%2==0){
+                    duplicado=Integer.parseInt(nuevaCedula[i])*2;
+                    if(duplicado>9){
+                        duplicado-=9;
+                        total+=duplicado;
+                    }else{
+                        total+=duplicado;
                     }
-                    
-                    if ((10-(suma%10))==verificador){
-                        cedulaCorrecta=true;
-                    } 
-                    
-                    else{
-                        cedulaCorrecta=false;
-                    }
+                }else{
+                    total+=Integer.parseInt(nuevaCedula[i]);
                 }
-                
-                else {
-                    cedulaCorrecta=false;
-                }
-            } 
-            
-            else {
-                cedulaCorrecta=false;
             }
-        }
-        
-        catch (NumberFormatException nfe) {
-           cedulaCorrecta=false;
-        }
-        
-        catch (Exception err) {
-           System.out.println("Error");
-           cedulaCorrecta=false;
-        }
-    
-        if (!cedulaCorrecta) {
-           System.out.println("La Cédula es Incorrecta");
-        }
-        
-        return cedulaCorrecta;
+        int decenaSuperior=total+(10-(total%10));
+        int digitoFinal=decenaSuperior-total,
+        digitoVerificador=Integer.parseInt(nuevaCedula[9]);
+        return digitoVerificador==digitoFinal;      
     }
 }
