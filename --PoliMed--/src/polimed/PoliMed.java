@@ -32,6 +32,17 @@ public class PoliMed {
       // Metodo para añadir Usuarios al Arreglo de Usuarios Registrados.
       this.usuariosRegistrados.add(usuario);
     }
+     public boolean validarUsuario (String correo , String contraseña){
+        boolean run=false;
+        //Si encuentra al usuario en el arreglo retorna true, si no false
+        for (Usuario usuario : this.usuariosRegistrados) {
+            if (usuario.getCorreo().equals(correo) && usuario.getContraseña().equals(contraseña)){
+                run = true;
+                break;
+            } 
+        }
+     return   run;
+    }
       public void iniciarPoliMed(){
           //Aqui se deben inicializar todos los productos 
           //Tambien se deben inicializar los usuarios registrados desde un archivo.
