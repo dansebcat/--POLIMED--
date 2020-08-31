@@ -35,4 +35,7 @@ public class PoliMed {
           //Aqui se deben inicializar todos los productos 
           //Tambien se deben inicializar los usuarios registrados desde un archivo.
       }
+      
+      
+      
 }

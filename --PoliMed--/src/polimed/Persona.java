@@ -14,17 +14,18 @@ import java.util.Date;
 public class Persona {
     private final String nombre;
     private final String apellido;
-    private final String direccion;
+    private String direccion;
     private final String cedula;
-    private final Date fecNac;
+    private final int edad;
 
-    public Persona(String nombre, String apellido, String direccion, String cedula, Date fecNac) {
+    public Persona(String nombre, String apellido, String cedula, int edad) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.direccion = direccion;
         this.cedula = cedula;
-        this.fecNac = fecNac;
+        this.edad = edad;
     }
+
+    
     
     
 }
