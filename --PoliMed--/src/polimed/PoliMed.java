@@ -32,7 +32,7 @@ public class PoliMed {
       // Metodo para añadir Usuarios al Arreglo de Usuarios Registrados.
       this.usuariosRegistrados.add(usuario);
     }
-     public boolean validarUsuario (String correo , String contraseña){
+     public boolean esUsuarioValido (String correo , String contraseña){
         boolean run=false;
         //Si encuentra al usuario en el arreglo retorna true, si no false
         for (Usuario usuario : this.usuariosRegistrados) {
@@ -42,6 +42,10 @@ public class PoliMed {
             } 
         }
      return   run;
+    }
+     public boolean esCorreoValido(String correo){
+        //Metodo para validar si un correo tiene estructura adecuada
+       return correo.matches("([a-z]*[.]*[a-z]*[0-9]*)+[@]"+"([hotmail.com]*[gmail.com]*)");
     }
       public void iniciarPoliMed(){
           //Aqui se deben inicializar todos los productos 
