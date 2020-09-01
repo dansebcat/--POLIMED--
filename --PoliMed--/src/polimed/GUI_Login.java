@@ -171,8 +171,8 @@ public class GUI_Login extends javax.swing.JFrame {
 
     private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusLost
         // TODO add your handling code here:
-        Usuario emailUser= new Usuario(txtUsuario.getText(),pssClave.getText());
-        if(emailUser.esCorreo(txtUsuario.getText())){
+        PoliMed emailUser= new PoliMed();
+        if(emailUser.esCorreoValido(txtUsuario.getText())){
             
         }else{
             JOptionPane.showMessageDialog(null, "Email Incorrecto");

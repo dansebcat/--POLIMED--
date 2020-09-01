@@ -16,6 +16,7 @@ public class GUI_Registro extends javax.swing.JFrame {
     /**
      * Creates new form GUI_Registro
      */
+    //PoliMed addUser= new PoliMed();
     public GUI_Registro() {
         initComponents();
         setLocationRelativeTo(null);
@@ -244,19 +245,18 @@ public class GUI_Registro extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        ListaUsuarios newUser= new ListaUsuarios();
-        //newUser.añadirUsuario(txtCorreo.getText(),pssClave.getText());
+        PoliMed addUser= new PoliMed();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost
         // TODO add your handling code here:
-        Usuario correo= new Usuario(txtCorreo.getText(), pssClave.getText());
-            if(correo.esCorreo(txtCorreo.getText())){
-                
-            }else{
-                JOptionPane.showMessageDialog(null,"Email Incorrecto!!!");
-                txtCorreo.requestFocus();
-            }
+        PoliMed emailUser= new PoliMed();
+        if (emailUser.esCorreoValido(txtCorreo.getText())) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Email Incorrecto!!!");
+            txtCorreo.requestFocus();
+        }
     }//GEN-LAST:event_txtCorreoFocusLost
 
     private void txtCedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCedulaFocusLost

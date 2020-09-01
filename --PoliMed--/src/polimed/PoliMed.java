@@ -24,35 +24,36 @@ public class PoliMed {
         usuariosRegistrados=new ArrayList<>();
     }  
     
-      public void añadirProducto(Producto producto){
-         //Metodo Para Añadir Productos A la Farmacia.
-       this.productosFarmacia.add(producto);
+    public void añadirProducto(Producto producto) {
+        //Metodo Para Añadir Productos A la Farmacia.
+        this.productosFarmacia.add(producto);
     }
-      public void añadirUsuario (Usuario usuario){
-      // Metodo para añadir Usuarios al Arreglo de Usuarios Registrados.
-      this.usuariosRegistrados.add(usuario);
+
+    public void añadirUsuario(Usuario usuario) {
+        // Metodo para añadir Usuarios al Arreglo de Usuarios Registrados.
+        this.usuariosRegistrados.add(usuario);
     }
-     public boolean esUsuarioValido (String correo , String contraseña){
-        boolean run=false;
+
+    public boolean esUsuarioValido(String correo, String contraseña) {
+        boolean run = false;
         //Si encuentra al usuario en el arreglo retorna true, si no false
         for (Usuario usuario : this.usuariosRegistrados) {
-            if (usuario.getCorreo().equals(correo) && usuario.getContraseña().equals(contraseña)){
+            if (usuario.getCorreo().equals(correo) && usuario.getContraseña().equals(contraseña)) {
                 run = true;
                 break;
-            } 
+            }
         }
-     return   run;
+        return run;
     }
-     public boolean esCorreoValido(String correo){
-        //Metodo para validar si un correo tiene estructura adecuada
-       return correo.matches("([a-z]*[.]*[a-z]*[0-9]*)+[@]"+"([hotmail.com]*[gmail.com]*)");
+
+    public boolean esCorreoValido(String correo) {
+        //Metodo para validar si un correo tiene estructura adecuada  
+        return correo.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.([a-zA-Z]{2,4})+$");
     }
-      public void iniciarPoliMed(){
-          //Aqui se deben inicializar todos los productos 
-          //Tambien se deben inicializar los usuarios registrados desde un archivo.
-      }
-      
-      
-      
+
+    public void iniciarPoliMed() {
+        //Aqui se deben inicializar todos los productos 
+        //Tambien se deben inicializar los usuarios registrados desde un archivo.
+    }
 }
 

@@ -25,16 +25,12 @@ public class Usuario extends Persona{
         this.contraseña=contraseña;
     }
 
-   
     public String getCorreo() {
         return correo;
     }
 
     public String getContraseña() {
         return contraseña;
-    }
-    
-    
-    
+    }   
 }
 
