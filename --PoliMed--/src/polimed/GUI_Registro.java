@@ -245,7 +245,7 @@ public class GUI_Registro extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        polimed.añadirUsuario(new((String) txtNombre.getText(),(String) txtApellido.getText(),(String) txtCedula.getText(),Integer.valueOf(txtEdad.getText()),(String)txtCorreo.getText(),(String) pssClave.getText());
+        polimed.añadirUsuario(new Usuario((String) txtNombre.getText(),(String) txtApellido.getText(),(String) txtCedula.getText(),Integer.valueOf(txtEdad.getText()),(String)txtCorreo.getText(),(String) pssClave.getText()));
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost
