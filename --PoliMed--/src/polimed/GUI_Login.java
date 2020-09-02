@@ -5,11 +5,8 @@
  */
 package polimed;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
@@ -17,6 +14,9 @@ import javax.swing.JPanel;
  */
 public class GUI_Login extends javax.swing.JFrame {
 
+    private static Scanner read;
+    private String user,pass;
+    //PoliMed polimed= new PoliMed();
     /**
      * Creates new form GUI_Login
      */
@@ -142,30 +142,31 @@ public class GUI_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_pssClaveKeyTyped
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        // TODO add your handling code here:
         int option;
+        GUI_Productos producto= new GUI_Productos();
         GUI_Registro registro= new GUI_Registro();
-        ListaUsuarios usuario= new ListaUsuarios();
-        if(usuario.validarUsuario(txtUsuario.getText(), pssClave.getText()) == true){
+        PoliMed userValid= new PoliMed();
+        if (txtUsuario.getText() == "true") {
             JOptionPane.showMessageDialog(null, "Login Sucesfull");
-        }else{
-            option=JOptionPane.showConfirmDialog(null, "Usuario no Registrado"+"\n"+"Desea Registrarse ");
-            if(option == 0){
+            producto.setVisible(true);
+            this.setVisible(false);
+        } else {
+            option = JOptionPane.showConfirmDialog(null, "Usuario no Registrado" + "\n" + "Desea Registrarse ");
+            if (option == 0) {
                 borrarElementos();
                 txtUsuario.setEnabled(false);
                 pssClave.setEnabled(false);
                 btnIngresar.setEnabled(false);
-                btnRegistro.setEnabled(true);
                 registro.setVisible(true);
                 this.setVisible(false);
-            }else{
+            } else {
                 borrarElementos();
                 txtUsuario.setEnabled(true);
                 pssClave.setEnabled(true);
                 btnIngresar.setEnabled(false);
                 btnRegistro.setEnabled(false);
             }
-            
+
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 

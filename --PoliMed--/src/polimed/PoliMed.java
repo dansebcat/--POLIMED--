@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class PoliMed {
     //Esta clase representa a la Aplcacion de la farmacia.
-      private ArrayList <Producto> productosFarmacia; // Arreglo que contiene todos los productos disponibles.
-      private ArrayList <Usuario> usuariosRegistrados; //Arreglo que almacena usuario registrados.
+      public ArrayList <Producto> productosFarmacia; // Arreglo que contiene todos los productos disponibles.
+      public static ArrayList <Usuario> usuariosRegistrados; //Arreglo que almacena usuario registrados.
       //Es necesario añadir un arreglo para productos a comprar.
 
     public PoliMed() {
@@ -29,9 +29,9 @@ public class PoliMed {
         this.productosFarmacia.add(producto);
     }
 
-    public void añadirUsuario(Usuario usuario) {
+    public static void añadirUsuario(Usuario usuario) {
         // Metodo para añadir Usuarios al Arreglo de Usuarios Registrados.
-        this.usuariosRegistrados.add(usuario);
+        usuariosRegistrados.add(usuario);
     }
 
     public boolean esUsuarioValido(String correo, String contraseña) {
