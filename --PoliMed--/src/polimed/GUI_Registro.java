@@ -140,6 +140,24 @@ public class GUI_Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void userData(){
+        String nombreArchivo="DatosLogin";
+        String carpeta= System.getProperty("user.dir");
+        String direccionCompleta=carpeta+"/"+nombreArchivo+".txt";
+        String cadena=txtCorreo.getText()+"\n"+pssClave.getText()+"\n";
+        FileWriter ubicacion= null;
+        try {
+            ubicacion= new FileWriter(direccionCompleta,true);
+        } catch (IOException ex) {
+            Logger.getLogger(Archivos.class.getName()).log(Level.SEVERE, null,ex);
+        }
+        try {
+            BufferedWriter escritor = new BufferedWriter(ubicacion);
+            escritor.write(cadena);
+            escritor.close();
+        } catch (Exception e) {
+        }
+    }
     public void crearUsuario(){// metodo para crear archivo.txt y guardar datos del ususario nuevo
         String nombreArchivo="Base de Datos Usuario";
         String carpeta= System.getProperty("user.dir");
@@ -254,6 +272,9 @@ public class GUI_Registro extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         crearUsuario();
+        userData();
+        btnGuardar.setEnabled(false);
+        btnCancelar.setEnabled(false);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost

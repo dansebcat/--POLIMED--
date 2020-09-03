@@ -5,7 +5,15 @@
  */
 package polimed;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,11 +23,7 @@ import javax.swing.JOptionPane;
 public class GUI_Login extends javax.swing.JFrame {
 
     private static Scanner read;
-    private String user,pass;
-    //PoliMed polimed= new PoliMed();
-    /**
-     * Creates new form GUI_Login
-     */
+    private static String user,psw;
     public GUI_Login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -145,29 +149,55 @@ public class GUI_Login extends javax.swing.JFrame {
         int option;
         GUI_Productos producto= new GUI_Productos();
         GUI_Registro registro= new GUI_Registro();
-        PoliMed userValid= new PoliMed();
-        if (txtUsuario.getText() == "true") {
-            JOptionPane.showMessageDialog(null, "Login Sucesfull");
-            producto.setVisible(true);
-            this.setVisible(false);
-        } else {
-            option = JOptionPane.showConfirmDialog(null, "Usuario no Registrado" + "\n" + "Desea Registrarse ");
-            if (option == 0) {
-                borrarElementos();
-                txtUsuario.setEnabled(false);
-                pssClave.setEnabled(false);
-                btnIngresar.setEnabled(false);
-                registro.setVisible(true);
+        try {
+            int nLineas = 0;
+            int i = 0;
+            String [] usuarios= null;
+            String linea;
+            read = new Scanner(new File("DatosLogin.txt"));
+            File f = new File("DatosLogin.txt");
+            FileReader fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while ((linea = br.readLine()) != null) {
+                    nLineas++;
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(GUI_Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            usuarios = new String[nLineas];
+            while (read.hasNextLine()) {
+                usuarios[i++] = read.nextLine();
+            }
+            user = txtUsuario.getText();
+            psw = pssClave.getText();
+            leerArchivo userValid = new leerArchivo();
+            
+            if (userValid.validarUsuario(usuarios, user, psw)) {
+                producto.setVisible(true);
                 this.setVisible(false);
             } else {
-                borrarElementos();
-                txtUsuario.setEnabled(true);
-                pssClave.setEnabled(true);
-                btnIngresar.setEnabled(false);
-                btnRegistro.setEnabled(false);
-            }
+                option = JOptionPane.showConfirmDialog(null, "Usuario no Registrado" + "\n" + "Desea Registrarse ");
+                if (option == 0) {
+                    borrarElementos();
+                    txtUsuario.setEnabled(false);
+                    pssClave.setEnabled(false);
+                    btnIngresar.setEnabled(false);
+                    registro.setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    borrarElementos();
+                    txtUsuario.setEnabled(true);
+                    pssClave.setEnabled(true);
+                    btnIngresar.setEnabled(false);
+                    btnRegistro.setEnabled(false);
+                }
 
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GUI_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusLost
