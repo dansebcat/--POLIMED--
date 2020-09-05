@@ -171,7 +171,7 @@ public class GUI_Login extends javax.swing.JFrame {
             }
             user = txtUsuario.getText();
             psw = pssClave.getText();
-            leerArchivo userValid = new leerArchivo();
+            LeerArchivo userValid = new LeerArchivo();
             
             if (userValid.validarUsuario(usuarios, user, psw)) {
                 producto.setVisible(true);

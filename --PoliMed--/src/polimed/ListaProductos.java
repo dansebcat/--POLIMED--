@@ -15,7 +15,7 @@ public class ListaProductos {
     private ArrayList <Producto> listaProductos;
 
     public ListaProductos() {
-        listaProductos= new ArrayList<Producto>();
+        listaProductos = new ArrayList<Producto>();
         
     }
     public void añadirProducto(Producto producto){

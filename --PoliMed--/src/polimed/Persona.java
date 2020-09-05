@@ -25,8 +25,4 @@ public class Persona {
         this.cedula = cedula;
         this.edad = edad;
     }
-
-    
-    
-    
 }

@@ -140,7 +140,7 @@ public class GUI_Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void userData(){
+    public void userData(){// metodo para extraer el correo y la clave y validar un usaurio ya registrado
         String nombreArchivo="DatosLogin";
         String carpeta= System.getProperty("user.dir");
         String direccionCompleta=carpeta+"/"+nombreArchivo+".txt";
@@ -158,7 +158,7 @@ public class GUI_Registro extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    public void crearUsuario(){// metodo para crear archivo.txt y guardar datos del ususario nuevo
+    public void crearUsuario(){// metodo para crear archivo.txt y guardar todos los  datos del ususario nuevo
         String nombreArchivo="Base de Datos Usuario";
         String carpeta= System.getProperty("user.dir");
         String direccionCompleta=carpeta+"/"+nombreArchivo+".txt";
