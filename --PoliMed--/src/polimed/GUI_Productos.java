@@ -86,23 +86,13 @@ public class GUI_Productos extends javax.swing.JFrame {
 
     private void txtBusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyTyped
         // TODO add your handling code here:
-        autocompletarBusqueda();
+        
     }//GEN-LAST:event_txtBusquedaKeyTyped
 
     /**
      * @param args the command line arguments
      */
-    public void autocompletarBusqueda(){// metodo para autocompletar busqueda
-        TextAutoCompleter autocomplete = new TextAutoCompleter(txtBusqueda);
-        String [] cadenas={"Edison","Edwin","Juan","Jose","Alberto","Andres","Julian","Eduardo",
-                           "Azuay","Bolivar","Cañar","Carchi","Cotopaxi","Chimborazo","El Oro",
-                           "Esmeraldas","Guayas","Imbabura","Loja","Los Rios","Manabi","Morona Santiago",
-                           "Napo","Pastaza","Pichincha","Tungurahua","Zamora Chinchipe","Galapagos","Sucumbios",
-                           "Orellana","Sto. Domingo de los Tsachilas","Santa Elena"};
-        for(int i=0;i<cadenas.length;i++){
-            autocomplete.addItem(cadenas[i]);
-        }
-    }
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
