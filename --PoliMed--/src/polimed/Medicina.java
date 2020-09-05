@@ -12,8 +12,9 @@ package polimed;
 public abstract class Medicina extends Producto{
     private String sintoma;
 
-    public Medicina(String codigoProducto, String nombreProducto, double precioProducto) {
+    public Medicina(String codigoProducto, String nombreProducto,String sintoma, double precioProducto) {
         super(codigoProducto, nombreProducto, precioProducto);
+        this.sintoma=sintoma;
     }
 
     public String getSintoma() {

@@ -11,9 +11,11 @@ package polimed;
  */
 public class Pastilla extends Medicina{
 
-    public Pastilla(String codigoProducto, String nombreProducto, double precioProducto) {
-        super(codigoProducto, nombreProducto, precioProducto);
+    public Pastilla(String codigoProducto, String nombreProducto, String sintoma, double precioProducto) {
+        super(codigoProducto, nombreProducto, sintoma, precioProducto);
     }
+
+    
 
     @Override
     public double calcularPrecio(int cantidadProducto) {

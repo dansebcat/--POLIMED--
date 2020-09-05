@@ -9,11 +9,14 @@ package polimed;
  *
  * @author danie
  */
+
 public class Jarabe extends Medicina {
 
-    public Jarabe(String codigoProducto, String nombreProducto, double precioProducto) {
-        super(codigoProducto, nombreProducto, precioProducto);
+    public Jarabe(String codigoProducto, String nombreProducto, String sintoma, double precioProducto) {
+        super(codigoProducto, nombreProducto, sintoma, precioProducto);
     }
+
+    
 
     @Override
     public double calcularPrecio(int cantidadProducto) {
