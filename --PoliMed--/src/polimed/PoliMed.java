@@ -14,13 +14,23 @@ import java.util.ArrayList;
  */
 public class PoliMed {
     //Esta clase representa a la Aplcacion de la farmacia.
-      public ArrayList <Producto> productosFarmacia; // Arreglo que contiene todos los productos disponibles.
+    public static ArrayList <Producto> productosComprados= new ArrayList <> ();  //Arreglo de productos que comprara el usuario.
+    public ArrayList <Producto> productosFarmacia; // Arreglo que contiene todos los productos disponibles.
       //Es necesario añadir un arreglo para productos a comprar.
 
     public PoliMed() {
         //Inicializamos los Arreglos
         productosFarmacia=new ArrayList<>();
     }  
+    
+    public static void añadirProductoComprado(Producto producto , int cantidad){
+        //Añade productos que va a comprar el usuario a un Arreglo
+        for (int i = 0 ; i < cantidad ; i++){
+            productosComprados.add(producto);
+        }
+    }
+    
+    //Buscar //Ordenar
     
     public void añadirProducto(Producto producto) {
         //Metodo Para Añadir Productos A la Farmacia.
