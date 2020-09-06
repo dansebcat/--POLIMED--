@@ -2,7 +2,7 @@ package polimed;
 
 import javax.swing.JOptionPane;
 
-public class LeerArchivo {
+public class LeerArchivos {
       public boolean validarUsuario(String usuarios[],String user,String pass){
        boolean encontrado= false;
        for(int i=0; i<usuarios.length;i++){
