@@ -8,79 +8,21 @@ public class GUI_Productos extends javax.swing.JFrame {
 
     DefaultTableModel model = new DefaultTableModel();
     PoliMed polimed = new PoliMed();
-   
+    
    
     public void cargarDatos(){
+        Object[][] vector = new Object [polimed.productosFarmacia.size()][4]; 
         polimed.iniciarProductos();
-        ArrayList <Object>nombrecolumna= new ArrayList<>();
-        nombrecolumna.add("Cod. Producto");
-        nombrecolumna.add("Nombre ");
-        nombrecolumna.add("Sintoma");
-        nombrecolumna.add("Precio $");
+        model.addColumn("Cod. Producto");
+        model.addColumn("Nombre Producto");
+        model.addColumn("Sintoma");
+        model.addColumn("Precio $");
         
-        for(Object columna:nombrecolumna){
-            model.addColumn(columna);
-        }
         this.tblProductos.setModel(model);
-        
-        ArrayList <Object[]> datos= new ArrayList<>();
-        Object[] info1 = new Object[] {"P01","MUXOL OTC 30 mg","T0S",4.40};
-        Object[] info2 = new Object[] {"P02","BISOLVON","T0S",6.80};
-        Object[] info3 = new Object[] {"P03","KALOBA 20 mg","T0S",13.50};
-        Object[] info4 = new Object[] {"P04","ISLA MINT","DOLOR DE GARGANTA",6.20};
-        Object[] info5 = new Object[] {"P05","ORALSEPT","DOLOR DE GARGANTA",18};
-        Object[] info6 = new Object[] {"P06","MEBOLIMON","DOLOR DE GARGANTA",19.20};
-        Object[] info7 = new Object[] {"P07","NEOGRIPAL F","GRIPE",4.80};
-        Object[] info8 = new Object[] {"P08","FINALIN GRIPE","GRIPE",18.24};
-        Object[] info9 = new Object[] {"P09","lEMONFLU","GRIPE",15};
-        Object[] info10 = new Object[] {"P10","ASPIRINA","ANALGESICO",10.80};
-        Object[] info11 = new Object[] {"P11","PROFINAL FLASH","ANALGESICO",4.80};
-        Object[] info12 = new Object[] {"P12","BUPREX FALSH","ANALGESICO",2.50};
-        Object[] info13 = new Object[] {"JO1","MUCOSOLVAN 120 ml","TOS",7.39};
-        Object[] info14 = new Object[] {"JO2","BEBITOL 60 ml","TOS",3.11};
-        Object[] info15 = new Object[] {"JO3","BISOLVON 120 ml","TOS",5.04};
-        Object[] info16 = new Object[] {"JO4","ORALSEPT 240 ml","DOLOR DE GARGANTA",2.26};
-        Object[] info17 = new Object[] {"JO5","SALIV HUMECTANTE 60 ml","DOLOR DE GARGANTA",4.80};
-        Object[] info18 = new Object[] {"JO6","KALOBA","GRIPE",17.45};
-        Object[] info19 = new Object[] {"JO7","NASTIFRIN 100 ml","GRIPE",6.08};
-        Object[] info20 = new Object[] {"JO8","NEOGRIPAL 60 ml","GRIPE",5.24};
-        Object[] info21 = new Object[] {"JO9","FEVERIL 120 ml","ANALGESICO",1.90};
-        Object[] info22 = new Object[] {"J10","MK-PARACETAMOL 30 ml","ANALGESICO",1.63};
-        Object[] info23 = new Object[] {"J11","UMBRAL 60 ml","ANALGESICO",2.15};
-        
-        datos.add(info1);
-        datos.add(info2);
-        datos.add(info3);
-        datos.add(info4);
-        datos.add(info5);
-        datos.add(info6);
-        datos.add(info7);
-        datos.add(info8);
-        datos.add(info9);
-        datos.add(info10);
-        datos.add(info11);
-        datos.add(info12);
-        datos.add(info13);
-        datos.add(info14);
-        datos.add(info15);
-        datos.add(info16);
-        datos.add(info17);
-        datos.add(info18);
-        datos.add(info19);
-        datos.add(info20);
-        datos.add(info21);
-        datos.add(info22);
-        datos.add(info23);
-       /* for(Object[] products:datos){
-            model.addRow(products);
-           
-        }*/
+      
         for (Producto producto : polimed.productosFarmacia) {
-            Object obj = producto;
-            model.addRow((Object[]) obj);
+           model.addRow(new Object[]{producto.getCodigoProducto(),producto.getNombreProducto(),((Medicina)producto).getSintoma(),String.valueOf(producto.getPrecioProducto())}); 
         }
-        
-        
         this.tblProductos.setModel(model);
     }
     public GUI_Productos() {
