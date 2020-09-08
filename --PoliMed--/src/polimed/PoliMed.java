@@ -17,7 +17,7 @@ public class PoliMed {
     public static ArrayList <Producto> productosComprados= new ArrayList <> ();  //Arreglo de productos que comprara el usuario.
     public ArrayList <Producto> productosFarmacia; // Arreglo que contiene todos los productos disponibles.
       //Es necesario añadir un arreglo para productos a comprar.
-
+    public ArrayList <Object[]> productosVector= new ArrayList<>();
     public PoliMed() {
         //Inicializamos los Arreglos
         productosFarmacia=new ArrayList<>();
@@ -70,6 +70,8 @@ public class PoliMed {
         productosFarmacia.add(new Jarabe("J10","MK-PARACETAMOL 30ML","ANALGESICO",1.63));
         productosFarmacia.add(new Jarabe("J11","UMBRAL 60ML","ANALGESICO",2.15));
     }
+    
+    
     
 }
 

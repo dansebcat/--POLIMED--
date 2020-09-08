@@ -7,8 +7,11 @@ import javax.swing.table.DefaultTableModel;
 public class GUI_Productos extends javax.swing.JFrame {
 
     DefaultTableModel model = new DefaultTableModel();
-    
+    PoliMed polimed = new PoliMed();
+   
+   
     public void cargarDatos(){
+        polimed.iniciarProductos();
         ArrayList <Object>nombrecolumna= new ArrayList<>();
         nombrecolumna.add("Cod. Producto");
         nombrecolumna.add("Nombre ");
@@ -68,13 +71,21 @@ public class GUI_Productos extends javax.swing.JFrame {
         datos.add(info21);
         datos.add(info22);
         datos.add(info23);
-        for(Object[] products:datos){
+       /* for(Object[] products:datos){
             model.addRow(products);
+           
+        }*/
+        for (Producto producto : polimed.productosFarmacia) {
+            Object obj = producto;
+            model.addRow((Object[]) obj);
         }
+        
+        
         this.tblProductos.setModel(model);
     }
     public GUI_Productos() {
         initComponents();
+         
         setLocationRelativeTo(null);
         cargarDatos();
         TextPrompt busqueda = new TextPrompt("Producto a Buscar", txtBusqueda);
