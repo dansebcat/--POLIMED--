@@ -175,8 +175,6 @@ public class GUI_Login extends javax.swing.JFrame {
             
             if (userValid.validarUsuario(usuarios, user, psw)) {
                 producto.setVisible(true);
-                Usuario.correo = txtUsuario.getText();    
-                
                 this.setVisible(false);
             } else {
                 option = JOptionPane.showConfirmDialog(null, "Usuario no Registrado" + "\n" + "Desea Registrarse ");

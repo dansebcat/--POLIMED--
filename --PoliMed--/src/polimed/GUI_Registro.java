@@ -141,13 +141,13 @@ public class GUI_Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void userData(){// metodo para extraer el correo y la clave y validar un usaurio ya registrado
-        String nombreArchivo="DatosLogin";
-        String carpeta= System.getProperty("user.dir");
+        String nombreArchivo = "DatosLogin";
+        String carpeta = System.getProperty("user.dir");
         String direccionCompleta=carpeta+"/"+nombreArchivo+".txt";
-        String cadena=txtCorreo.getText()+"\n"+pssClave.getText()+"\n";
+        String cadena = txtCorreo.getText()+"\n"+pssClave.getText()+"\n";
         FileWriter ubicacion= null;
         try {
-            ubicacion= new FileWriter(direccionCompleta,true);
+            ubicacion = new FileWriter(direccionCompleta,true);
         } catch (IOException ex) {
             Logger.getLogger(Archivos.class.getName()).log(Level.SEVERE, null,ex);
         }
@@ -159,10 +159,10 @@ public class GUI_Registro extends javax.swing.JFrame {
         }
     }
     public void crearUsuario(){// metodo para crear archivo.txt y guardar todos los  datos del ususario nuevo
-        String nombreArchivo="Base de Datos Usuario";
-        String carpeta= System.getProperty("user.dir");
+        String nombreArchivo ="Base de Datos Usuario";
+        String carpeta = System.getProperty("user.dir");
         String direccionCompleta=carpeta+"/"+nombreArchivo+".txt";
-        String cadena=txtCorreo.getText()+"\n"+txtCedula.getText()+"\n"+txtNombre.getText()+"\n"+txtApellido.getText()+"\n"+pssClave.getText()+"\n"+txtEdad.getText();
+        String cadena = txtNombre.getText()+"\n"+txtApellido.getText()+"\n"+pssClave.getText()+"\n"+txtCorreo.getText()+"\n"+txtCedula.getText()+"\n"+txtEdad.getText()+"\n";
         FileWriter ubicacion= null;
         try {
             ubicacion= new FileWriter(direccionCompleta,true);
@@ -279,7 +279,7 @@ public class GUI_Registro extends javax.swing.JFrame {
 
     private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost
         // TODO add your handling code here:
-        PoliMed emailUser= new PoliMed();
+        PoliMed emailUser = new PoliMed();
         if (emailUser.esCorreoValido(txtCorreo.getText())) {
 
         } else {
@@ -290,7 +290,7 @@ public class GUI_Registro extends javax.swing.JFrame {
 
     private void txtCedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCedulaFocusLost
         // TODO add your handling code here:
-        Cedula useId= new Cedula();
+        Cedula useId = new Cedula();
         if(useId.esValida(txtCedula.getText())){
             
         }else{

@@ -1,9 +1,4 @@
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package polimed;
 
 import java.util.ArrayList;
@@ -53,12 +48,12 @@ public class PoliMed {
         productosFarmacia.add(new Pastilla ("P06","MEBOLIMON","DOLOR DE GARGANTA",19.20));
         productosFarmacia.add(new Pastilla ("P07","NEOGRIPAL F","GRIPE",4.80));
         productosFarmacia.add(new Pastilla ("P08","FINALIN GRIPE","GRIPE",18.24));
-        productosFarmacia.add(new Pastilla ("P09","lEMONFLU","GRIPE",15));
+        productosFarmacia.add(new Pastilla ("P09","LEMONFLU","GRIPE",15));
         productosFarmacia.add(new Pastilla ("P10","ASPIRINA","ANALGESICO",10.80));
         productosFarmacia.add(new Pastilla ("P11","PROFINAL FLASH","ANALGESICO",4.80));
         productosFarmacia.add(new Pastilla ("P12","BUPREX FALSH","ANALGESICO",2.50));
         //Añadiendo Jarabes
-        productosFarmacia.add(new Jarabe("JO1","MUCUSOLVAN 120ML","TOS",7.39));
+        productosFarmacia.add(new Jarabe("JO1","MUCOSOLVAN 120ML","TOS",7.39));
         productosFarmacia.add(new Jarabe("JO2","BEBITOL 60ML","TOS",3.11));
         productosFarmacia.add(new Jarabe("JO3","BISOLVON 120 ML","TOS",5.04));
         productosFarmacia.add(new Jarabe("JO4","ORALSEPT 240ML","DOLOR DE GARGANTA",2.26));
@@ -70,8 +65,5 @@ public class PoliMed {
         productosFarmacia.add(new Jarabe("J10","MK-PARACETAMOL 30ML","ANALGESICO",1.63));
         productosFarmacia.add(new Jarabe("J11","UMBRAL 60ML","ANALGESICO",2.15));
     }
-    
-    
-    
 }
 

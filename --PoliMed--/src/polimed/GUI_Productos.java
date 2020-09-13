@@ -1,16 +1,34 @@
 package polimed;
 
-import java.util.ArrayList;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 
 public class GUI_Productos extends javax.swing.JFrame {
 
     DefaultTableModel model = new DefaultTableModel();
+    private TableRowSorter trsFiltro;//instancia de un objeto tipo TableRowSorter
     PoliMed polimed = new PoliMed();
     
+    public void filtro(){// metodo para filtrar la busqueda 
+        String filtro = txtBusqueda.getText().toUpperCase();
+        
+        if (rbtNombre.isSelected()) {
+            int columna = 1;
+            trsFiltro.setRowFilter(RowFilter.regexFilter(filtro, columna));
+        } else if (rbtSintoma.isSelected()) {
+            int columna = 2;
+            trsFiltro.setRowFilter(RowFilter.regexFilter(filtro, columna));
+        }
+    }
    
-    public void cargarDatos(){
+    public void cargarDatos(){// carga de datos del arraylist a la tabla
+         
         Object[][] vector = new Object [polimed.productosFarmacia.size()][4]; 
         polimed.iniciarProductos();
         model.addColumn("Cod. Producto");
@@ -30,38 +48,47 @@ public class GUI_Productos extends javax.swing.JFrame {
          
         setLocationRelativeTo(null);
         cargarDatos();
-        TextPrompt busqueda = new TextPrompt("Producto a Buscar", txtBusqueda);
-        TextPrompt cantidad = new TextPrompt("Cantidad", txtCantidad);
+        TextPrompt busqueda = new TextPrompt("Producto a Buscar", txtBusqueda);//placeholders
+        TextPrompt cantidad = new TextPrompt("Cantidad", txtCantidad);//placeholders
+        TextPrompt codProdcuto = new TextPrompt("Cod. Producto", txtCodigo);//placeholders
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgFiltro = new javax.swing.ButtonGroup();
         txtBusqueda = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
         txtCantidad = new javax.swing.JTextField();
-        btnAgregar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblProductos = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        rbtNombre = new javax.swing.JRadioButton();
+        rbtSintoma = new javax.swing.JRadioButton();
+        txtCodigo = new javax.swing.JTextField();
+        btnFinalizar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 68, 280, 38));
 
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/iconSearch.png"))); // NOI18N
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 68, -1, -1));
-        getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 68, 112, 38));
-
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/iconShop.png"))); // NOI18N
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+        txtBusqueda.setEditable(false);
+        txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBusquedaKeyTyped(evt);
             }
         });
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 68, 42, -1));
+        getContentPane().add(txtBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 260, 38));
+
+        txtCantidad.setEditable(false);
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 112, 38));
 
         tblProductos = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex,int colIndex){
@@ -83,18 +110,78 @@ public class GUI_Productos extends javax.swing.JFrame {
         tblProductos.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tblProductos);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 136, 580, 290));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 580, 290));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/fondoRegister.jpg"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(685, 485));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, -1));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Filtro por:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 100, -1));
+
+        btgFiltro.add(rbtNombre);
+        rbtNombre.setText("Nombre Producto");
+        getContentPane().add(rbtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+
+        btgFiltro.add(rbtSintoma);
+        rbtSintoma.setText("Sintoma");
+        getContentPane().add(rbtSintoma, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
+
+        txtCodigo.setEditable(false);
+        getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 123, 38));
+
+        btnFinalizar.setText("FINALIZAR COMPRA");
+        getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 152, 38));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/iconAdd.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 50, 38));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/fondoLogin.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void txtBusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarActionPerformed
+        if(btgFiltro.getSelection() == null){
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Elija un filtro para realizar la Busqueda");
+        }else{
+            txtBusqueda.setEditable(true);
+            txtCantidad.setEditable(true);
+            txtCodigo.setEditable(true);
+            txtBusqueda.addKeyListener(new KeyAdapter(){
+                @Override
+                public void keyTyped(final KeyEvent e) {
+                    filtro();
+                }
+            });
+            trsFiltro = new TableRowSorter(model);
+            tblProductos.setRowSorter(trsFiltro);
+        }
+    }//GEN-LAST:event_txtBusquedaKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if(!txtBusqueda.getText().isEmpty() && !txtCantidad.getText().isEmpty() && !txtCodigo.getText().isEmpty()){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        // TODO add your handling code here:
+        char valid = evt.getKeyChar();
+        if(Character.isLetter(valid)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Solo se permiten numeros");
+        }
+    }//GEN-LAST:event_txtCantidadKeyTyped
 
     /**
      * @param args the command line arguments
@@ -133,13 +220,18 @@ public class GUI_Productos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.ButtonGroup btgFiltro;
+    private javax.swing.JButton btnFinalizar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JRadioButton rbtNombre;
+    private javax.swing.JRadioButton rbtSintoma;
     private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtBusqueda;
     private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 
 }

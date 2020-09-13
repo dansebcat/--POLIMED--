@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package polimed;
 
 /**
@@ -11,7 +7,7 @@ package polimed;
  */
 public class Cedula {
     
-    public boolean esValida(String cedulaNumero){//cambie le metodo de fabricio porque no me funcionaba en algunas cedulas le puse mi metodo de cedulas perdon :)
+    public boolean esValida(String cedulaNumero){
         int total=0;
         int duplicado;
         String nuevaCedula[];
