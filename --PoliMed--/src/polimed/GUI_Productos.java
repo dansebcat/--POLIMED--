@@ -128,6 +128,11 @@ public class GUI_Productos extends javax.swing.JFrame {
         getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 123, 38));
 
         btnFinalizar.setText("FINALIZAR COMPRA");
+        btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 152, 38));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/iconAdd.png"))); // NOI18N
@@ -138,8 +143,8 @@ public class GUI_Productos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 50, 38));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/fondoLogin.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 520));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/fondoRegister.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -182,6 +187,13 @@ public class GUI_Productos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Solo se permiten numeros");
         }
     }//GEN-LAST:event_txtCantidadKeyTyped
+
+    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        // TODO add your handling code here:
+        GUI_Factura factura = new GUI_Factura();
+        factura.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnFinalizarActionPerformed
 
     /**
      * @param args the command line arguments

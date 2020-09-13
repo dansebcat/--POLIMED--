@@ -40,9 +40,9 @@ public class PoliMed {
     public void iniciarProductos() {
         //Aqui se deben inicializar todos los productos 
         //Añadiendo Pastillas
-        productosFarmacia.add(new Pastilla ("P01","MUXOL OTC 30MG","T0S",4.40));
-        productosFarmacia.add(new Pastilla ("P02","BISOLVON","T0S",6.80));
-        productosFarmacia.add(new Pastilla ("P03","KALOBA 20MG","T0S",13.50));
+        productosFarmacia.add(new Pastilla ("P01","MUXOL OTC 30MG","TOS",4.40));
+        productosFarmacia.add(new Pastilla ("P02","BISOLVON","TOS",6.80));
+        productosFarmacia.add(new Pastilla ("P03","KALOBA 20MG","TOS",13.50));
         productosFarmacia.add(new Pastilla ("P04","ISLA MINT","DOLOR DE GARGANTA",6.20));
         productosFarmacia.add(new Pastilla ("P05","ORALSEPT","DOLOR DE GARGANTA",18));
         productosFarmacia.add(new Pastilla ("P06","MEBOLIMON","DOLOR DE GARGANTA",19.20));
