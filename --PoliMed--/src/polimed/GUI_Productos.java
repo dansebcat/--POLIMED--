@@ -56,6 +56,11 @@ public class GUI_Productos extends javax.swing.JFrame {
         getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 68, 112, 38));
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/iconShop.png"))); // NOI18N
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(555, 68, 42, -1));
 
         tblProductos = new javax.swing.JTable(){
@@ -86,6 +91,10 @@ public class GUI_Productos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments

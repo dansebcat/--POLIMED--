@@ -162,7 +162,7 @@ public class GUI_Registro extends javax.swing.JFrame {
         String nombreArchivo="Base de Datos Usuario";
         String carpeta= System.getProperty("user.dir");
         String direccionCompleta=carpeta+"/"+nombreArchivo+".txt";
-        String cadena=txtNombre.getText()+"\n"+txtApellido.getText()+"\n"+pssClave.getText()+"\n"+txtCorreo.getText()+"\n"+txtCedula.getText()+"\n"+txtEdad.getText()+"\n";
+        String cadena=txtCorreo.getText()+"\n"+txtCedula.getText()+"\n"+txtNombre.getText()+"\n"+txtApellido.getText()+"\n"+pssClave.getText()+"\n"+txtEdad.getText();
         FileWriter ubicacion= null;
         try {
             ubicacion= new FileWriter(direccionCompleta,true);
