@@ -209,7 +209,7 @@ public class GUI_Productos extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if( PoliMed.productosComprados.isEmpty()){
-          JOptionPane.showMessageDialog(null,"No ha comprado Productos");
+          JOptionPane.showMessageDialog(null,"No existe un registro de Productos");
        }else{
             GUI_Factura factura = new GUI_Factura();
             factura.setVisible(true);
@@ -226,7 +226,8 @@ public class GUI_Productos extends javax.swing.JFrame {
         int seleccionar = tblProductos.rowAtPoint(evt.getPoint());
         txtBusqueda.setText(String.valueOf(tblProductos.getValueAt(seleccionar, 1)));
         txtCodigo.setText(String.valueOf(tblProductos.getValueAt(seleccionar, 0)));
-
+        txtBusqueda.setEditable(false);
+        txtCodigo.setEditable(false);
     }//GEN-LAST:event_tblProductosMouseClicked
 
     /**
