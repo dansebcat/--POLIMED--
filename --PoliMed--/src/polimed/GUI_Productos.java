@@ -54,6 +54,7 @@ public class GUI_Productos extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
+   
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -153,7 +154,12 @@ public class GUI_Productos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void borrarElementos(){
+        txtBusqueda.setText("");
+        txtCantidad.setText("");
+        txtCodigo.setText("");
+    }
+    
     private void txtBusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyTyped
         // TODO add your handling code here:
         if(btgFiltro.getSelection() == null){
@@ -178,8 +184,10 @@ public class GUI_Productos extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!txtBusqueda.getText().isEmpty() && !txtCantidad.getText().isEmpty() && !txtCodigo.getText().isEmpty()){
             PoliMed.añadirProductoComprado(txtCodigo.getText().toUpperCase(), Integer.parseInt(txtCantidad.getText()));
+            borrarElementos();
         }else{
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
+            
         }
     }//GEN-LAST:event_btnAñadirActionPerformed
 
@@ -195,9 +203,14 @@ public class GUI_Productos extends javax.swing.JFrame {
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         // TODO add your handling code here:
-        GUI_Factura factura = new GUI_Factura();
-        factura.setVisible(true);
-        this.setVisible(false);
+        
+        if( PoliMed.productosComprados.isEmpty()){
+          JOptionPane.showMessageDialog(null,"No ha comprado Productos");
+       }else{
+            GUI_Factura factura = new GUI_Factura();
+            factura.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed

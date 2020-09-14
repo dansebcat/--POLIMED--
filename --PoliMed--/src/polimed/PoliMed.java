@@ -22,16 +22,22 @@ public class PoliMed {
     public  static void añadirProductoComprado(String codigo , int cantidad){
         //Añade productos que va a comprar el usuario a un Arreglo
         iniciarProductos();
+        boolean encontro=false;
         for (Producto producto : productosFarmacia) {
             if (producto.getCodigoProducto().equals(codigo) ){
                      for (int i = 0 ; i < cantidad ; i++){
                       productosComprados.add(producto);
+                      encontro=true;
                 }
-            }else{
-                JOptionPane.showMessageDialog(null,"NO EXISTE EL CODIGO INGRESADO");
-                break;
             }
         }
+        if ( !encontro){
+            JOptionPane.showMessageDialog(null,"No se ha encontrado el producto");
+        }else{
+            JOptionPane.showMessageDialog(null,"Producto/s agregado/s Correctamente");
+        }
+            
+       
        
     }
     
