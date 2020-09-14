@@ -64,11 +64,19 @@ public class Usuario extends Persona{
         Persona.edad = edad;
     }
 
-    public String getCorreo() {
+    public static String getCorreo() {
         return correo;
     }
 
-    public String getContraseña() {
+    public static void setCorreo(String correo) {
+        Usuario.correo = correo;
+    }
+
+    public static void setContraseña(String contraseña) {
+        Usuario.contraseña = contraseña;
+    }
+    
+    public static String getContraseña() {
         return contraseña;
     }   
 }

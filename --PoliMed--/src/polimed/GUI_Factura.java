@@ -16,6 +16,7 @@ public class GUI_Factura extends javax.swing.JFrame {
         initComponents();
         JOptionPane.showMessageDialog(null,PoliMed.productosComprados.get(0).getCodigoProducto());
         setLocationRelativeTo(null);
+        txtDatosFac.setText(PoliMed.DatosFactura());
     }
 
     /**
@@ -28,7 +29,7 @@ public class GUI_Factura extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDatosFac = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -36,12 +37,12 @@ public class GUI_Factura extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDatosFac.setEditable(false);
+        txtDatosFac.setColumns(20);
+        txtDatosFac.setRows(5);
+        jScrollPane1.setViewportView(txtDatosFac);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 99, 482, 425));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 482, 425));
 
         jLabel1.setFont(new java.awt.Font("SimSun-ExtB", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,6 +94,6 @@ public class GUI_Factura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtDatosFac;
     // End of variables declaration//GEN-END:variables
 }

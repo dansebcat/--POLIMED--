@@ -21,7 +21,6 @@ public class PoliMed {
     
     public  static void añadirProductoComprado(String codigo , int cantidad){
         //Añade productos que va a comprar el usuario a un Arreglo
-        iniciarProductos();
         boolean encontro=false;
         for (Producto producto : productosFarmacia) {
             if (producto.getCodigoProducto().equals(codigo) ){
@@ -82,6 +81,18 @@ public class PoliMed {
             suma+=producto.getPrecioProducto();
         }
         return suma;
+    }
+    public static String DatosFactura(){
+        String datos="";
+        datos+="------------POLIMED-------------\n";
+        datos+="-----Factura: \n";
+        datos+="Clente :   "+Usuario.getCorreo()+"\n";
+        for (Producto producto : productosComprados) {
+            datos+=producto.getNombreProducto()+"\t\t"+producto.getPrecioProducto()+"\n";
+        }
+        datos+="------------TOTAL: \t "+PoliMed.calcularPrecioTotal();
+        
+        return datos;
     }
 }
 
