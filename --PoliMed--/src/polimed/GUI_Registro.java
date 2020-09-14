@@ -162,7 +162,7 @@ public class GUI_Registro extends javax.swing.JFrame {
         String nombreArchivo ="Base de Datos Usuario";
         String carpeta = System.getProperty("user.dir");
         String direccionCompleta=carpeta+"/"+nombreArchivo+".txt";
-        String cadena = txtCorreo.getText()+"\n"+txtCedula.getText()+"\n"+txtNombre.getText()+"\n"+txtApellido.getText()+"\n"+pssClave.getText()+"\n"+"\n"+txtEdad.getText();
+        String cadena = txtCorreo.getText()+"\n"+txtCedula.getText()+"\n"+txtNombre.getText()+"\n"+txtApellido.getText()+"\n"+pssClave.getText()+"\n"+txtEdad.getText();
         FileWriter ubicacion= null;
         try {
             ubicacion= new FileWriter(direccionCompleta,true);
@@ -273,8 +273,11 @@ public class GUI_Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         crearUsuario();
         userData();
+        JOptionPane.showMessageDialog(null, "Registro Exitoso..!!!");
+        limpiarElementos();
         btnGuardar.setEnabled(false);
         btnCancelar.setEnabled(false);
+        btnCancelar.requestFocus();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost

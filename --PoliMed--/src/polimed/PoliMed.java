@@ -83,14 +83,21 @@ public class PoliMed {
         return suma;
     }
     public static String DatosFactura(){
+        Factura fecha = new Factura();
+        int numFactura = 0;
         String datos="";
-        datos+="------------POLIMED-------------\n";
-        datos+="-----Factura: \n";
-        datos+="Clente :   "+Usuario.getCorreo()+"\n";
+        datos+="============================ POLIMED ============================\n";
+        datos+="Factura: \n";
+        datos+= fecha.mostrarFecha();
+        datos+="Clente :   "+Usuario.getCorreo()+"\n\n";
+        datos+="DETALLE"+"\t\t"+"VALOR"+"\t"+"IVA"+"\n";
+        datos+="=======================================================\n";
         for (Producto producto : productosComprados) {
-            datos+=producto.getNombreProducto()+"\t\t"+producto.getPrecioProducto()+"\n";
+            datos+=producto.getNombreProducto()+"\t\t$"+producto.getPrecioProducto()+"\n";
         }
-        datos+="------------TOTAL: \t "+PoliMed.calcularPrecioTotal();
+        datos+="=======================================================\n\n";
+        datos+="Telefono: 1800-polimed\n"; 
+        datos+="\n\t\tTOTAL: \t "+PoliMed.calcularPrecioTotal();
         
         return datos;
     }

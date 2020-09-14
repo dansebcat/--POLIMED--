@@ -15,34 +15,7 @@ public class GUI_Productos extends javax.swing.JFrame {
     private TableRowSorter trsFiltro;//instancia de un objeto tipo TableRowSorter
     PoliMed polimed = new PoliMed();
     
-    public void filtro(){// metodo para filtrar la busqueda 
-        String filtro = txtBusqueda.getText().toUpperCase();
-        
-        if (rbtNombre.isSelected()) {
-            int columna = 1;
-            trsFiltro.setRowFilter(RowFilter.regexFilter(filtro, columna));
-        } else if (rbtSintoma.isSelected()) {
-            int columna = 2;
-            trsFiltro.setRowFilter(RowFilter.regexFilter(filtro, columna));
-        }
-    }
    
-    public void cargarDatos(){// carga de datos del arraylist a la tabla
-         
-        Object[][] vector = new Object [polimed.productosFarmacia.size()][4]; 
-        polimed.iniciarProductos();
-        model.addColumn("Cod. Producto");
-        model.addColumn("Nombre Producto");
-        model.addColumn("Sintoma");
-        model.addColumn("Precio $");
-        
-        this.tblProductos.setModel(model);
-      
-        for (Producto producto : polimed.productosFarmacia) {
-           model.addRow(new Object[]{producto.getCodigoProducto(),producto.getNombreProducto(),((Medicina)producto).getSintoma(),String.valueOf(producto.getPrecioProducto())}); 
-        }
-        this.tblProductos.setModel(model);
-    }
     public GUI_Productos() {
         initComponents();
          
@@ -76,6 +49,11 @@ public class GUI_Productos extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtBusqueda.setEditable(false);
+        txtBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusquedaActionPerformed(evt);
+            }
+        });
         txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBusquedaKeyTyped(evt);
@@ -107,6 +85,7 @@ public class GUI_Productos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblProductos.setColumnSelectionAllowed(true);
         tblProductos.getTableHeader().setResizingAllowed(false);
         tblProductos.getTableHeader().setReorderingAllowed(false);
         tblProductos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -159,6 +138,35 @@ public class GUI_Productos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void filtro(){// metodo para filtrar la busqueda 
+        String filtro = txtBusqueda.getText().toUpperCase();
+        
+        if (rbtNombre.isSelected()) {
+            int columna = 1;
+            trsFiltro.setRowFilter(RowFilter.regexFilter(filtro, columna));
+        } else if (rbtSintoma.isSelected()) {
+            int columna = 2;
+            trsFiltro.setRowFilter(RowFilter.regexFilter(filtro, columna));
+        }
+    }
+   
+    public void cargarDatos(){// carga de datos del arraylist a la tabla
+         
+        Object[][] vector = new Object [polimed.productosFarmacia.size()][4]; 
+        polimed.iniciarProductos();
+        model.addColumn("Cod. Producto");
+        model.addColumn("Nombre Producto");
+        model.addColumn("Sintoma");
+        model.addColumn("Precio $");
+        
+        this.tblProductos.setModel(model);
+      
+        for (Producto producto : polimed.productosFarmacia) {
+           model.addRow(new Object[]{producto.getCodigoProducto(),producto.getNombreProducto(),((Medicina)producto).getSintoma(),String.valueOf(producto.getPrecioProducto())}); 
+        }
+        this.tblProductos.setModel(model);
+    }
     public void borrarElementos(){
         txtBusqueda.setText("");
         txtCantidad.setText("");
@@ -229,6 +237,11 @@ public class GUI_Productos extends javax.swing.JFrame {
         txtBusqueda.setEditable(false);
         txtCodigo.setEditable(false);
     }//GEN-LAST:event_tblProductosMouseClicked
+
+    private void txtBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtBusquedaActionPerformed
 
     /**
      * @param args the command line arguments

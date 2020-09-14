@@ -16,7 +16,7 @@ public class Factura {
     public int anio,dia,mes,hora,minuto,segundos;
     public double total;
     
-    public void mostrarFecha(){//metodo para calcular la fecha y hora actual
+    public String mostrarFecha(){//metodo para calcular la fecha y hora actual
         Calendar calendario= Calendar.getInstance();
         String fecha;
         anio=calendario.get(Calendar.YEAR);//obtiene el año actual
@@ -25,16 +25,7 @@ public class Factura {
         hora=calendario.get(Calendar.HOUR_OF_DAY);//obtiene la hora actual
         minuto=calendario.get(Calendar.MINUTE);//obtiene los minutos actuales
         segundos=calendario.get(Calendar.SECOND);//obtiene los segundos actuales
-        String cadena = "Fecha: "+dia+"/"+mes+"/"+anio+"\t\t\tHora: "+hora+":"+minuto+":"+segundos+"\n";
-        System.out.println(cadena);
-    }
-    public void calcularTotalPagar(){//metodo para calcular el total a pagar por la compra
-    
-    
-    }
-    
-    public static void main(String[] args) {
-       Factura fecha = new Factura();
-        fecha.mostrarFecha();
+        String cadena = "Fecha: "+dia+"/"+mes+"/"+anio+"\t\tHora: "+hora+":"+minuto+":"+segundos+"\n";
+        return cadena;
     }
 }
