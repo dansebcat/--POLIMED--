@@ -25,14 +25,16 @@ public class Factura {
         hora=calendario.get(Calendar.HOUR_OF_DAY);//obtiene la hora actual
         minuto=calendario.get(Calendar.MINUTE);//obtiene los minutos actuales
         segundos=calendario.get(Calendar.SECOND);//obtiene los segundos actuales
+        String cadena = "Fecha: "+dia+"/"+mes+"/"+anio+"\t\t\tHora: "+hora+":"+minuto+":"+segundos+"\n";
+        System.out.println(cadena);
     }
     public void calcularTotalPagar(){//metodo para calcular el total a pagar por la compra
     
     
     }
-    @Override
-    public String toString() {
-        return "Fecha: "+dia+"/"+mes+"/"+anio+"\nHora: "+hora+":"+minuto+":"+segundos+"\n";
-    }
     
+    public static void main(String[] args) {
+       Factura fecha = new Factura();
+        fecha.mostrarFecha();
+    }
 }

@@ -36,13 +36,8 @@ public class PoliMed {
         }else{
             JOptionPane.showMessageDialog(null,"Producto/s agregado/s Correctamente");
         }
-            
-       
-       
     }
-    
     //Buscar //Ordenar
-    
     public void añadirProducto(Producto producto) {
         //Metodo Para Añadir Productos A la Farmacia.
         this.productosFarmacia.add(producto);
@@ -69,15 +64,15 @@ public class PoliMed {
         productosFarmacia.add(new Pastilla ("P11","PROFINAL FLASH","ANALGESICO",4.80));
         productosFarmacia.add(new Pastilla ("P12","BUPREX FALSH","ANALGESICO",2.50));
         //Añadiendo Jarabes
-        productosFarmacia.add(new Jarabe("JO1","MUCOSOLVAN 120ML","TOS",7.39));
-        productosFarmacia.add(new Jarabe("JO2","BEBITOL 60ML","TOS",3.11));
-        productosFarmacia.add(new Jarabe("JO3","BISOLVON 120 ML","TOS",5.04));
-        productosFarmacia.add(new Jarabe("JO4","ORALSEPT 240ML","DOLOR DE GARGANTA",2.26));
-        productosFarmacia.add(new Jarabe("JO5","SALIV HUMECTANTE 60 ML","DOLOR DE GARGANTA",4.80));
-        productosFarmacia.add(new Jarabe("JO6","KALOBA","GRIPE",17.45));
-        productosFarmacia.add(new Jarabe("JO7","NASTIFRIN 100ML","GRIPE",6.08));
-        productosFarmacia.add(new Jarabe("JO8","NEOGRIPAL 60ML","GRIPE",5.24));
-        productosFarmacia.add(new Jarabe("JO9","FEVERIL 120ML","ANALGESICO",1.90));
+        productosFarmacia.add(new Jarabe("J01","MUCOSOLVAN 120ML","TOS",7.39));
+        productosFarmacia.add(new Jarabe("J02","BEBITOL 60ML","TOS",3.11));
+        productosFarmacia.add(new Jarabe("J03","BISOLVON 120 ML","TOS",5.04));
+        productosFarmacia.add(new Jarabe("J04","ORALSEPT 240ML","DOLOR DE GARGANTA",2.26));
+        productosFarmacia.add(new Jarabe("J05","SALIV HUMECTANTE 60 ML","DOLOR DE GARGANTA",4.80));
+        productosFarmacia.add(new Jarabe("J06","KALOBA","GRIPE",17.45));
+        productosFarmacia.add(new Jarabe("J07","NASTIFRIN 100ML","GRIPE",6.08));
+        productosFarmacia.add(new Jarabe("J08","NEOGRIPAL 60ML","GRIPE",5.24));
+        productosFarmacia.add(new Jarabe("J09","FEVERIL 120ML","ANALGESICO",1.90));
         productosFarmacia.add(new Jarabe("J10","MK-PARACETAMOL 30ML","ANALGESICO",1.63));
         productosFarmacia.add(new Jarabe("J11","UMBRAL 60ML","ANALGESICO",2.15));
     }
