@@ -109,6 +109,11 @@ public class GUI_Productos extends javax.swing.JFrame {
         ));
         tblProductos.getTableHeader().setResizingAllowed(false);
         tblProductos.getTableHeader().setReorderingAllowed(false);
+        tblProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProductosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblProductos);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 580, 290));
@@ -187,7 +192,6 @@ public class GUI_Productos extends javax.swing.JFrame {
             borrarElementos();
         }else{
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
-            
         }
     }//GEN-LAST:event_btnAñadirActionPerformed
 
@@ -216,6 +220,14 @@ public class GUI_Productos extends javax.swing.JFrame {
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void tblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductosMouseClicked
+        // TODO add your handling code here:
+        int seleccionar = tblProductos.rowAtPoint(evt.getPoint());
+        txtBusqueda.setText(String.valueOf(tblProductos.getValueAt(seleccionar, 1)));
+        txtCodigo.setText(String.valueOf(tblProductos.getValueAt(seleccionar, 0)));
+
+    }//GEN-LAST:event_tblProductosMouseClicked
 
     /**
      * @param args the command line arguments
