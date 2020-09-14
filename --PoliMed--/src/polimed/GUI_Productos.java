@@ -67,7 +67,7 @@ public class GUI_Productos extends javax.swing.JFrame {
         rbtSintoma = new javax.swing.JRadioButton();
         txtCodigo = new javax.swing.JTextField();
         btnFinalizar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAñadir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -125,6 +125,11 @@ public class GUI_Productos extends javax.swing.JFrame {
         getContentPane().add(rbtSintoma, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
 
         txtCodigo.setEditable(false);
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 123, 38));
 
         btnFinalizar.setText("FINALIZAR COMPRA");
@@ -135,13 +140,13 @@ public class GUI_Productos extends javax.swing.JFrame {
         });
         getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 152, 38));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/iconAdd.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/iconAdd.png"))); // NOI18N
+        btnAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAñadirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 50, 38));
+        getContentPane().add(btnAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 50, 38));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/polimed/fondoRegister.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 520));
@@ -169,14 +174,14 @@ public class GUI_Productos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtBusquedaKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
         // TODO add your handling code here:
         if(!txtBusqueda.getText().isEmpty() && !txtCantidad.getText().isEmpty() && !txtCodigo.getText().isEmpty()){
-            
+            PoliMed.añadirProductoComprado(txtCodigo.getText().toUpperCase(), Integer.parseInt(txtCantidad.getText()));
         }else{
             JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAñadirActionPerformed
 
     private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
         // TODO add your handling code here:
@@ -194,6 +199,10 @@ public class GUI_Productos extends javax.swing.JFrame {
         factura.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,8 +242,8 @@ public class GUI_Productos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgFiltro;
+    private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnFinalizar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;

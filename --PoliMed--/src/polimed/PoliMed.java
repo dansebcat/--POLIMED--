@@ -2,6 +2,7 @@
 package polimed;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class PoliMed {
     //Esta clase representa a la Aplcacion de la farmacia.
     public static ArrayList <Producto> productosComprados= new ArrayList <> ();  //Arreglo de productos que comprara el usuario.
-    public ArrayList <Producto> productosFarmacia; // Arreglo que contiene todos los productos disponibles.
+    public static ArrayList <Producto> productosFarmacia; // Arreglo que contiene todos los productos disponibles.
       //Es necesario añadir un arreglo para productos a comprar.
     public ArrayList <Object[]> productosVector= new ArrayList<>();
     public PoliMed() {
@@ -18,11 +19,20 @@ public class PoliMed {
         productosFarmacia=new ArrayList<>();
     }  
     
-    public static void añadirProductoComprado(Producto producto , int cantidad){
+    public  static void añadirProductoComprado(String codigo , int cantidad){
         //Añade productos que va a comprar el usuario a un Arreglo
-        for (int i = 0 ; i < cantidad ; i++){
-            productosComprados.add(producto);
+        iniciarProductos();
+        for (Producto producto : productosFarmacia) {
+            if (producto.getCodigoProducto().equals(codigo) ){
+                     for (int i = 0 ; i < cantidad ; i++){
+                      productosComprados.add(producto);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null,"NO EXISTE EL CODIGO INGRESADO");
+                break;
+            }
         }
+       
     }
     
     //Buscar //Ordenar
@@ -37,7 +47,7 @@ public class PoliMed {
         return correo.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.([a-zA-Z]{2,4})+$");
     }
 
-    public void iniciarProductos() {
+    public static void iniciarProductos() {
         //Aqui se deben inicializar todos los productos 
         //Añadiendo Pastillas
         productosFarmacia.add(new Pastilla ("P01","MUXOL OTC 30MG","TOS",4.40));
@@ -64,6 +74,13 @@ public class PoliMed {
         productosFarmacia.add(new Jarabe("JO9","FEVERIL 120ML","ANALGESICO",1.90));
         productosFarmacia.add(new Jarabe("J10","MK-PARACETAMOL 30ML","ANALGESICO",1.63));
         productosFarmacia.add(new Jarabe("J11","UMBRAL 60ML","ANALGESICO",2.15));
+    }
+    public static double calcularPrecioTotal( ){
+        double suma=0;
+        for (Producto producto : productosComprados) {
+            suma+=producto.getPrecioProducto();
+        }
+        return suma;
     }
 }
 

@@ -1,6 +1,8 @@
 
 package polimed;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author E2
@@ -12,6 +14,7 @@ public class GUI_Factura extends javax.swing.JFrame {
      */
     public GUI_Factura() {
         initComponents();
+        JOptionPane.showMessageDialog(null,PoliMed.productosComprados.get(0).getCodigoProducto());
         setLocationRelativeTo(null);
     }
 
